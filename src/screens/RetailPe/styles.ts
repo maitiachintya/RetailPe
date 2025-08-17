@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f4f4f4',
+    backgroundColor: '#ffff',
     borderRadius: 30,
     paddingHorizontal: 10,
     borderColor: 'gray',
