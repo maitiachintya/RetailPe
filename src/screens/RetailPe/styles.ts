@@ -176,22 +176,6 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 4,
   },
-  headerLine: {
-    flexDirection: 'row',
-    flex: 1,
-    alignItems: 'center',
-  },
-  lineBold: {
-    flex: 1,
-    height: 2,
-    backgroundColor: '#6819F6',
-  },
-  lineThin: {
-    flex: 2,
-    height: 1,
-    backgroundColor: '#C5A9F6',
-    marginLeft: 4,
-  },
   stepRow: {
     flexDirection: 'row',
     marginBottom: 24,

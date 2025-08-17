@@ -61,7 +61,7 @@ export default function TabNavigation() {
         borderTopWidth: 8,
         borderTopColor: 'rgba(0,0,0,0.1)',
         tabBarLabelStyle: {
-          fontSize: 10,
+          fontSize: 12,
         },
       })}
     >
