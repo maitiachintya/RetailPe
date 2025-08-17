@@ -1,7 +1,6 @@
 import {
   Image,
   ScrollView,
-  StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
@@ -18,11 +17,6 @@ import Gradient from '../../components/Gradient';
 const RetailPe = () => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <StatusBar
-        backgroundColor={'transparent'}
-        hidden
-        barStyle={'dark-content'}
-      />
       <View style={styles.headerView}>
         <TouchableOpacity style={styles.touchProfile}></TouchableOpacity>
         <View style={styles.searchBox}>
