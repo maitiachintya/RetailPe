@@ -63,12 +63,7 @@ export const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700',
-  },
-  linearGradient: {
-    flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
-    borderRadius: 5,
+    marginRight: 8,
   },
   loanGrid: {
     flexDirection: 'row',
@@ -171,13 +166,15 @@ export const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 18,
+    marginTop: 6,
   },
   headerTitle: {
     fontSize: 18,
     marginTop: 5,
     fontWeight: '700',
     marginLeft: 20,
+    marginRight: 4,
   },
   headerLine: {
     flexDirection: 'row',

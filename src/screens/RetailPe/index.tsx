@@ -13,6 +13,7 @@ import LoanCard from '../../components/LoanCard';
 import OfferCarousel from '../../components/Carousal';
 import { styles } from './styles';
 import { steps } from '../../utils/data';
+import Gradient from '../../components/Gradient';
 
 const RetailPe = () => {
   return (
@@ -40,6 +41,7 @@ const RetailPe = () => {
       </View>
       <View style={styles.allLoansRow}>
         <Text style={styles.sectionTitle}>All Loans</Text>
+        <Gradient />
       </View>
       <View style={styles.loanGrid}>
         <LoanCard
@@ -89,6 +91,7 @@ const RetailPe = () => {
         {/* Heading with line */}
         <View style={styles.header}>
           <Text style={styles.headerTitle}>How To Get Loan</Text>
+          <Gradient />
           {/* <View style={styles.headerLine}>
             <View style={styles.lineBold} />
             <View style={styles.lineThin} />
