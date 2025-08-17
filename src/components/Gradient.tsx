@@ -6,7 +6,7 @@ const Gradient = () => {
     <LinearGradient
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
-      colors={['#6819E6', '#8d4df4ff', '#eaecf3ff']}
+      colors={['#6819E6', '#b48ef1ff', '#ffff']}
       style={styles.linearGradient}
     >
       <View style={styles.shape}></View>
