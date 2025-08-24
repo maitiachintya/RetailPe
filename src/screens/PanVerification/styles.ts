@@ -93,7 +93,7 @@ export const styles = StyleSheet.create({
     width: '95%',
   },
   btnText: {
-    fontSize: 20,
+    fontSize: 15,
     color: 'white',
   },
 });

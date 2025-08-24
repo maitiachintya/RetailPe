@@ -35,7 +35,7 @@ const PanVerification = () => {
       </View>
 
       {/* Text and Input Container */}
-      <Text style={styles.verifyTitle}>Verify Pan Manually</Text>
+      <Text style={styles.verifyTitle}>Verify PAN Manually</Text>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
