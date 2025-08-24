@@ -13,8 +13,25 @@ import OfferCarousel from '../../components/Carousal';
 import { styles } from './styles';
 import { steps } from '../../utils/data';
 import Gradient from '../../components/Gradient';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootMainStackParamList } from '../../types';
+import { useNavigation } from '@react-navigation/native';
 
+// type RetailPeNavigationProp = NativeStackNavigationProp<
+//   RootStackParamList,
+//   'RetailPe'
+// >;
+
+type RetailPeNavigationProp = NativeStackNavigationProp<
+  RootMainStackParamList,
+  'PanVerification'
+>;
 const RetailPe = () => {
+
+    // const navigation = useNavigation<RetailPeNavigationProp>();
+
+    const navigation = useNavigation<RetailPeNavigationProp>();
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.headerView}>
@@ -42,6 +59,7 @@ const RetailPe = () => {
           title="Shop Loan"
           desc="Get Loan Up to 2.5L"
           img={Icons.shopLoanIcon}
+          onPress={()=> navigation.navigate('PanVerification')}
         />
         <LoanCard
           title="Gold Loan"
@@ -86,10 +104,6 @@ const RetailPe = () => {
         <View style={styles.header}>
           <Text style={styles.headerTitle}>How To Get Loan</Text>
           <Gradient />
-          {/* <View style={styles.headerLine}>
-            <View style={styles.lineBold} />
-            <View style={styles.lineThin} />
-          </View> */}
         </View>
 
         {/* Steps */}

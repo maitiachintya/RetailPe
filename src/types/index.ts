@@ -1,5 +1,6 @@
 export type RootMainStackParamList = {
   TabNavigation: undefined;
+  PanVerification: undefined;
 };
 
 export type RootMainTabParamList = {
