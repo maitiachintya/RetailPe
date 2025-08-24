@@ -21,9 +21,8 @@ type PanVerificationNavProp = NativeStackNavigationProp<
   'PanVerification'
 >;
 
-
 const PanVerification = () => {
-      const navigation = useNavigation<PanVerificationNavProp>();
+  const navigation = useNavigation<PanVerificationNavProp>();
 
   return (
     <SafeAreaView style={styles.main}>
