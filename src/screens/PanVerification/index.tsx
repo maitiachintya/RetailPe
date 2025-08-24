@@ -1,12 +1,51 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import {
+  Text,
+  SafeAreaView,
+  View,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
+  TextInput,
+} from 'react-native';
+import React from 'react';
+import { Icons } from '../../themes/Icons';
+import { styles } from './styles';
 
 const PanVerification = () => {
   return (
-    <View>
-      <Text>Pan Verification Page</Text>
-    </View>
-  )
-}
+    <SafeAreaView style={styles.main}>
+      {/* Header Container */}
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.touchArrow}>
+          <Icons.arrowIcon style={styles.arrowIcon} />
+        </TouchableOpacity>
+        <Text style={styles.title}>Pan Verification</Text>
+      </View>
 
-export default PanVerification
+      {/* Text and Input Container */}
+      <Text style={styles.verifyTitle}>Verify Pan Manually</Text>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={{ flex: 1 }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.inputMainContainer}>
+            <View style={styles.card}>
+              <TextInput style={styles.inputText} />
+              <View style={styles.confirmView}>
+                <Icons.arrowIcon style={styles.arrowIcon} />
+              </View>
+            </View>
+            <TouchableOpacity activeOpacity={0.9} style={styles.nextButton}>
+              <Text style={styles.btnText}>Next</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
+  );
+};
+
+export default PanVerification;
