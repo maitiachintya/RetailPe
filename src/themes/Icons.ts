@@ -14,6 +14,10 @@ import shopLoanIcon from '../assets/icons/Shop_Loan.png';
 import goldLoanIcon from '../assets/icons/Gold_Loan.png';
 import lamfIcon from '../assets/icons/LAMF.png';
 import softSkillIcon from '../assets/icons/Soft_Skills.png';
+import LoanVerifiedLogo from '../assets/icons/Loan_Verified_Logo.png';
+import DetailsIcon from '../assets/icons/Details_Icon.png';
+import Share from '../assets/icons/share.png';
+import CheckBox from '../assets/icons/CheckBox.png';
 
 export const Icons = {
   retailPe: RetailPeIcon,
@@ -32,4 +36,8 @@ export const Icons = {
   goldLoanIcon: goldLoanIcon,
   lamfIcon: lamfIcon,
   softSkillIcon: softSkillIcon,
+  LoanVerifiedLogo: LoanVerifiedLogo,
+  DetailsIcon: DetailsIcon,
+  Share: Share,
+  CheckBox: CheckBox,
 };

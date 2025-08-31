@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootMainStackParamList } from '../types/index';
 import TabNavigation from './BottomTabNav';
 import PanVerification from '../screens/PanVerification';
+import BusinessVerification from '../screens/BusinessVerification';
+import LoanApplied from '../screens/LoanApplied';
 
 // Create navigation ref
 export const navigationRef =
@@ -20,6 +22,8 @@ export default function RootNavigation() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="TabNavigation" component={TabNavigation} />
         <Stack.Screen name='PanVerification' component={PanVerification}/>
+        <Stack.Screen name='BusinessVerification' component={BusinessVerification} />
+        <Stack.Screen name='LoanApplied' component={LoanApplied}/>
         {/* Add more stack screens here if needed */}
       </Stack.Navigator>
     </NavigationContainer>

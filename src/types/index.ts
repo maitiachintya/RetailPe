@@ -1,6 +1,8 @@
 export type RootMainStackParamList = {
   TabNavigation: undefined;
   PanVerification: undefined;
+  BusinessVerification: undefined;
+  LoanApplied: undefined;
 };
 
 export type RootMainTabParamList = {

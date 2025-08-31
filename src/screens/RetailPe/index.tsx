@@ -22,9 +22,19 @@ import { useNavigation } from '@react-navigation/native';
 //   'RetailPe'
 // >;
 
+// type RetailPeNavigationProp = NativeStackNavigationProp<
+//   RootMainStackParamList,
+//   'PanVerification'
+// >;
+
+// type RetailPeNavigationProp = NativeStackNavigationProp<
+//   RootMainStackParamList,
+//   'BusinessVerification'
+// >;
+
 type RetailPeNavigationProp = NativeStackNavigationProp<
   RootMainStackParamList,
-  'PanVerification'
+  'LoanApplied'
 >;
 const RetailPe = () => {
 
@@ -59,7 +69,8 @@ const RetailPe = () => {
           title="Shop Loan"
           desc="Get Loan Up to 2.5L"
           img={Icons.shopLoanIcon}
-          onPress={()=> navigation.navigate('PanVerification')}
+          // onPress={()=> navigation.navigate('PanVerification')}
+          onPress={() => navigation.navigate('LoanApplied')}
         />
         <LoanCard
           title="Gold Loan"
