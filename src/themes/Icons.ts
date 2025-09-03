@@ -18,6 +18,7 @@ import LoanVerifiedLogo from '../assets/icons/Loan_Verified_Logo.png';
 import DetailsIcon from '../assets/icons/Details_Icon.png';
 import Share from '../assets/icons/share.png';
 import CheckBox from '../assets/icons/CheckBox.png';
+import WealthRupee from '../assets/icons/WealthRupee.png';
 
 export const Icons = {
   retailPe: RetailPeIcon,
@@ -40,4 +41,5 @@ export const Icons = {
   DetailsIcon: DetailsIcon,
   Share: Share,
   CheckBox: CheckBox,
+  WealthRupee: WealthRupee,
 };
