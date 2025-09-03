@@ -142,12 +142,12 @@ const MutualFund = () => {
             style={styles.horizontalList}
           >
             <FundCard
-              name={"Nifty Midcap 150 \nIndex Fund"}
+              name={'Nifty Midcap 150 \nIndex Fund'}
               returnRate="3Y returns: +21.99% p.a."
               ammount="Min. amount ₹500"
             />
             <FundCard
-              name={"Nifty Next 50 Index \nFund"}
+              name={'Nifty Next 50 Index \nFund'}
               returnRate="3Y returns: +21.99% p.a."
               ammount="Min. amount ₹500"
             />
