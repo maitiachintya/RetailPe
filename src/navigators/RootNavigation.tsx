@@ -9,6 +9,7 @@ import TabNavigation from './BottomTabNav';
 import PanVerification from '../screens/PanVerification';
 import BusinessVerification from '../screens/BusinessVerification';
 import LoanApplied from '../screens/LoanApplied';
+import LoanDashboard from '../screens/LoanDashboard';
 
 // Create navigation ref
 export const navigationRef =
@@ -24,6 +25,7 @@ export default function RootNavigation() {
         <Stack.Screen name='PanVerification' component={PanVerification}/>
         <Stack.Screen name='BusinessVerification' component={BusinessVerification} />
         <Stack.Screen name='LoanApplied' component={LoanApplied}/>
+        <Stack.Screen name='LoanDashboard' component={LoanDashboard}/>
         {/* Add more stack screens here if needed */}
       </Stack.Navigator>
     </NavigationContainer>

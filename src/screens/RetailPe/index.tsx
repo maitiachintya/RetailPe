@@ -32,15 +32,20 @@ import { useNavigation } from '@react-navigation/native';
 //   'BusinessVerification'
 // >;
 
+// type RetailPeNavigationProp = NativeStackNavigationProp<
+//   RootMainStackParamList,
+//   'LoanApplied'
+// >;
+
 type RetailPeNavigationProp = NativeStackNavigationProp<
   RootMainStackParamList,
-  'LoanApplied'
+  'LoanDashboard'
 >;
+
 const RetailPe = () => {
+  // const navigation = useNavigation<RetailPeNavigationProp>();
 
-    // const navigation = useNavigation<RetailPeNavigationProp>();
-
-    const navigation = useNavigation<RetailPeNavigationProp>();
+  const navigation = useNavigation<RetailPeNavigationProp>();
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -88,7 +93,10 @@ const RetailPe = () => {
           img={Icons.softSkillIcon}
         />
       </View>
-      <TouchableOpacity style={styles.dashBopardView}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('LoanDashboard')}
+        style={styles.dashBopardView}
+      >
         <Text style={styles.dashboardText}>Loan Dashboard</Text>
         <Image source={Icons.dashboardIcon} style={styles.dashboardLogo} />
       </TouchableOpacity>

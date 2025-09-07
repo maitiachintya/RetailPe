@@ -33,6 +33,11 @@ const MutualFund = () => {
     Alert.alert('This feature will come soon');
   };
 
+  const back =() => {
+    console.log("fdffdd");
+    navigation.goBack();
+  }
+
   const handleFocused = () => {
     setIsSearchFocused(true);
     navigation.setOptions({
@@ -77,7 +82,7 @@ const MutualFund = () => {
           <View style={styles.header}>
             <TouchableOpacity
               activeOpacity={0.9}
-              onPress={navigation.goBack}
+              onPress={back}
               style={styles.touchArrow}
             >
               <Icons.arrow2Icon
