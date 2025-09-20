@@ -43,3 +43,108 @@ export const steps = [
     desc: 'Approved amount is credited to your bank within 24 hours',
   },
 ];
+
+export const emiData = [
+  {
+    id: '1',
+    loanType: 'Shop Loan',
+    day: 'Today',
+    ammount: '500',
+  },
+  {
+    id: '2',
+    loanType: 'Shop Loan',
+    day: 'Yesterday',
+    ammount: '500',
+  },
+  {
+    id: '3',
+    loanType: 'Shop Loan',
+    day: 'Aug 2',
+    ammount: '500',
+  },
+  {
+    id: '4',
+    loanType: 'Shop Loan',
+    day: 'July 5',
+    ammount: '500',
+  },
+  {
+    id: '5',
+    loanType: 'Shop Loan',
+    day: 'July 1',
+    ammount: '500',
+  },
+  {
+    id: '6',
+    loanType: 'Shop Loan',
+    day: 'June 26',
+    ammount: '500',
+  },
+  {
+    id: '4',
+    loanType: 'Shop Loan',
+    day: 'July 5',
+    ammount: '500',
+  },
+  {
+    id: '5',
+    loanType: 'Shop Loan',
+    day: 'July 1',
+    ammount: '500',
+  },
+  {
+    id: '6',
+    loanType: 'Shop Loan',
+    day: 'June 26',
+    ammount: '500',
+  },
+  {
+    id: '4',
+    loanType: 'Shop Loan',
+    day: 'July 5',
+    ammount: '500',
+  },
+  {
+    id: '5',
+    loanType: 'Shop Loan',
+    day: 'July 1',
+    ammount: '500',
+  },
+  {
+    id: '6',
+    loanType: 'Shop Loan',
+    day: 'June 26',
+    ammount: '500',
+  },
+];
+
+
+export const LoansVarity = [
+    {
+        id: "1",
+        title: "Check credit score",
+        desc: "Know your credit score and \nExperian report instantly for quick loan eligibility",
+        image: Icons.arrow2Icon,
+        imgStyle: { position: 'absolute', right: -5, bottom: -4 }
+    },
+    {
+        id: "2",
+        title: "Insurance",
+        desc: "Protect your shop with easy insurance for security and \npeace of mind",
+        image: Icons.arrow2Icon,
+    },
+    {
+        id: "3",
+        title: "Check credit score",
+        desc: "Know your credit score and Experian report instantly for quick loan eligibility",
+        image: Icons.arrow2Icon,
+        imgStyle: { position: 'absolute', right: -5, bottom: -4 }
+    },
+    {
+        id: "4",
+        title: "Insurance",
+        desc: "Protect your shop with easy insurance for security and peace of mind",
+        image: Icons.arrow2Icon,
+    },
+];
