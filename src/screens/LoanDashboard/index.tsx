@@ -848,147 +848,552 @@
 
 // export default Index;
 
-import React from 'react';
+// import React from 'react';
+// import {
+//   View,
+//   Text,
+//   TouchableOpacity,
+//   ImageBackground,
+//   Dimensions,
+//   ScrollView,
+// } from 'react-native';
+// import { Icons } from '../../themes/Icons';
+// import { emiData } from '../../utils/data';
+// import OfferCarousel from '../../components/Carousal'; // your carousel component
+
+// const Index = () => {
+//   const { height: screenHeight } = Dimensions.get('window');
+//   const imageHeight = 200;
+//   const imageMargin = 20;
+//   const carouselHeight = 300; // exact height of your OfferCarousel component
+
+//   // Total height of image + carousel + margin
+//   const topContentHeight = imageHeight + imageMargin + carouselHeight;
+
+//   return (
+//     <View style={{ flex: 1, backgroundColor: '#fff' }}>
+//       {/* Header */}
+//       <View
+//         style={{
+//           position: 'absolute',
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           height: 60,
+//           // backgroundColor: 'rgba(255,255,255,0.95)',
+//           backgroundColor: "#ffff",
+//           flexDirection: 'row',
+//           shadowColor: "#000",
+//           shadowOffset: {
+//             width: 0,
+//             height: 4,
+//           },
+//           shadowOpacity: 0.3,
+//           shadowRadius: 10,
+//           elevation: 3,
+//           alignItems: 'center',
+//           paddingHorizontal: 15,
+//           justifyContent: 'space-between',
+//           zIndex: 3,
+//         }}
+//       >
+//         <TouchableOpacity>
+//           <Icons.arrow2Icon width={20} height={20} />
+//         </TouchableOpacity>
+//         <Text style={{ fontSize: 15, color: '#000' }}>Header</Text>
+//       </View>
+
+//       {/* Top Content: Image + Carousel */}
+//       <View style={{ marginTop: 60, alignItems: 'center', zIndex: 0 }}>
+//         <ImageBackground
+//           source={Icons.imgbk}
+//           style={{
+//             marginTop: imageMargin,
+//             width: screenHeight * 0.4,
+//             height: imageHeight,
+//             borderRadius: 40,
+//             overflow: 'hidden',
+//             alignItems: 'center',
+//             justifyContent: 'center',
+//           }}
+//         >
+//           <TouchableOpacity onPress={()=> console.log("Pressing")
+//           }>
+//             <Text style={{ fontSize: 30, color: 'white' }}>Hi</Text>
+//           </TouchableOpacity>
+//         </ImageBackground>
+
+//         {/* Carousel */}
+//         <View style={{ height: carouselHeight, marginTop: 10, width: '100%' }}>
+//           <OfferCarousel />
+//         </View>
+//       </View>
+
+//       {/* Red Scrollable Section */}
+//       <ScrollView
+//         style={{
+//           position: 'absolute',
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           bottom: 0,
+//           zIndex: 2,
+//         }}
+//         contentContainerStyle={{
+//           paddingTop: 60 + topContentHeight, // header + image + carousel
+//           paddingBottom: "3%",
+//         }}
+//         showsVerticalScrollIndicator={false}
+//          pointerEvents="box-none"
+//       >
+//         <View
+//         pointerEvents='auto'
+//           style={{
+//             backgroundColor: 'white',
+//             borderTopLeftRadius: 20,
+//             borderTopRightRadius: 20,
+//             paddingTop: 20,
+//             paddingBottom: 50,
+//             borderTopWidth: 0.3,
+//             borderRightWidth: 0.3,
+//             borderLeftWidth: 0.3,
+//           }}
+//         >
+//           <View style={{backgroundColor: "red"}}>
+//             <Text
+//             style={{
+//               marginHorizontal: 16,
+//               fontWeight: 'bold',
+//               fontSize: 16,
+//               color: '#000',
+//             }}
+//           >
+//             EMI Transactions
+//           </Text>
+//           </View>
+
+//           {emiData.map((item) => (
+//             <View
+//               key={item.id}
+//               style={{
+//                 width: '90%',
+//                 alignSelf: 'center',
+//                 backgroundColor: 'green',
+//                 marginVertical: 8,
+//                 borderRadius: 10,
+//                 padding: 10,
+//               }}
+//             >
+//               <Text style={{ fontWeight: '600', color: '#fff', fontSize: 16 }}>
+//                 {item.day}
+//               </Text>
+//               <Text style={{ fontSize: 14, color: '#fff' }}>₹ {item.ammount}</Text>
+//             </View>
+//           ))}
+//         </View>
+//       </ScrollView>
+//     </View>
+//   );
+// };
+
+// export default Index;
+
+
+// import React, { useMemo, useRef } from 'react';
+// import {
+//   View,
+//   Text,
+//   TouchableOpacity,
+//   ImageBackground,
+//   Dimensions,
+// } from 'react-native';
+// import { Icons } from '../../themes/Icons';
+// import { emiData } from '../../utils/data';
+// import OfferCarousel from '../../components/Carousal';
+// import BottomSheet from '@gorhom/bottom-sheet';
+
+// const Index = () => {
+//   const { height: screenHeight } = Dimensions.get('window');
+//   const imageHeight = 200;
+//   const imageMargin = 20;
+//   const carouselHeight = 300;
+
+//   const bottomSheetRef = useRef(null);
+
+//   // bottom sheet snap points (height)
+//   const snapPoints = useMemo(() => ['50%', '90%'], []);
+
+//   return (
+//     <View style={{ flex: 1, backgroundColor: '#fff' }}>
+//       {/* Header */}
+//       <View
+//         style={{
+//           position: 'absolute',
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           height: 60,
+//           backgroundColor: '#fff',
+//           flexDirection: 'row',
+//           shadowColor: '#000',
+//           shadowOffset: { width: 0, height: 4 },
+//           shadowOpacity: 0.3,
+//           shadowRadius: 10,
+//           elevation: 3,
+//           alignItems: 'center',
+//           paddingHorizontal: 15,
+//           justifyContent: 'space-between',
+//           zIndex: 3,
+//         }}
+//       >
+//         <TouchableOpacity>
+//           <Icons.arrow2Icon width={20} height={20} />
+//         </TouchableOpacity>
+//         <Text style={{ fontSize: 15, color: '#000' }}>Header</Text>
+//       </View>
+
+//       {/* Top Content */}
+//       <View style={{ marginTop: 60, alignItems: 'center', zIndex: 0 }}>
+//         <ImageBackground
+//           source={Icons.imgbk}
+//           style={{
+//             marginTop: imageMargin,
+//             width: screenHeight * 0.4,
+//             height: imageHeight,
+//             borderRadius: 40,
+//             overflow: 'hidden',
+//             alignItems: 'center',
+//             justifyContent: 'center',
+//           }}
+//         >
+//           <TouchableOpacity onPress={() => console.log('Pressing')}>
+//             <Text style={{ fontSize: 30, color: 'white' }}>Hi</Text>
+//           </TouchableOpacity>
+//         </ImageBackground>
+
+//         {/* Carousel */}
+//         <View style={{ height: carouselHeight, marginTop: 10, width: '100%' }}>
+//           <OfferCarousel />
+//         </View>
+//       </View>
+
+//       {/* Bottom Sheet for EMI Transactions */}
+//       <BottomSheet
+//         ref={bottomSheetRef}
+//         index={0} // start from first snap point
+//         snapPoints={snapPoints}
+//         enablePanDownToClose={false}
+//       >
+//         <View
+//           style={{
+//             flex: 1,
+//             backgroundColor: 'white',
+//             borderTopLeftRadius: 20,
+//             borderTopRightRadius: 20,
+//             paddingTop: 20,
+//             paddingBottom: 50,
+//           }}
+//         >
+//           <View style={{ backgroundColor: 'red' }}>
+//             <Text
+//               style={{
+//                 marginHorizontal: 16,
+//                 fontWeight: 'bold',
+//                 fontSize: 16,
+//                 color: '#000',
+//               }}
+//             >
+//               EMI Transactions
+//             </Text>
+//           </View>
+
+//           {emiData.map((item) => (
+//             <View
+//               key={item.id}
+//               style={{
+//                 width: '90%',
+//                 alignSelf: 'center',
+//                 backgroundColor: 'green',
+//                 marginVertical: 8,
+//                 borderRadius: 10,
+//                 padding: 10,
+//               }}
+//             >
+//               <Text style={{ fontWeight: '600', color: '#fff', fontSize: 16 }}>
+//                 {item.day}
+//               </Text>
+//               <Text style={{ fontSize: 14, color: '#fff' }}>
+//                 ₹ {item.ammount}
+//               </Text>
+//             </View>
+//           ))}
+//         </View>
+//       </BottomSheet>
+//     </View>
+//   );
+// };
+
+// export default Index;
+
+
+
+// import React, { useState } from 'react';
+// import {
+//   View,
+//   Text,
+//   TouchableOpacity,
+//   ImageBackground,
+//   ScrollView,
+//   StyleSheet,
+//   Dimensions,
+// } from 'react-native';
+// import OfferCarousel from '../../components/Carousal';
+// import { Icons } from '../../themes/Icons';
+// import { emiData } from '../../utils/data';
+
+// export default function Index() {
+//   const { width: screenWidth } = Dimensions.get('window');
+//   const imageHeight = 200;
+//   const carouselHeight = 300;
+//   const topContentHeight = imageHeight + carouselHeight;
+
+//   const [yellowTop, setYellowTop] = useState(topContentHeight);
+
+//   return (
+//     <View style={{ flex: 1, backgroundColor: '#fff' }}>
+//       {/* Header */}
+//       <View style={styles.header}>
+//         <TouchableOpacity>
+//           <Icons.arrow2Icon width={20} height={20} />
+//         </TouchableOpacity>
+//         <Text style={{ fontSize: 15 }}>Header</Text>
+//         <View style={{ width: 20 }} />
+//       </View>
+
+//       {/* Top content */}
+//       <View style={styles.topContent}>
+//         <ImageBackground
+//           source={Icons.imgbk}
+//           style={[styles.image, { width: screenWidth * 0.9, height: imageHeight }]}
+//         >
+//           <TouchableOpacity onPress={() => console.log('Image pressed')}>
+//             <Text style={{ fontSize: 30, color: 'white' }}>Hi</Text>
+//           </TouchableOpacity>
+//         </ImageBackground>
+
+//         <View style={{ height: carouselHeight, width: '100%', marginTop: 10 }}>
+//           <OfferCarousel />
+//         </View>
+//       </View>
+
+//       {/* Yellow panel */}
+//       <View
+//         style={{
+//           position: 'absolute',
+//           top: yellowTop,
+//           left: 0,
+//           right: 0,
+//           bottom: 0,
+//           backgroundColor: 'yellow',
+//           zIndex: 1,
+//         }}
+//       />
+
+//       {/* Scrollable content */}
+//       <ScrollView
+//         style={{ flex: 1, zIndex: 2 }}
+//         contentContainerStyle={{
+//           // paddingTop: topContentHeight,
+//           paddingHorizontal: 16,
+//           paddingBottom: 100,
+//         }}
+//         showsVerticalScrollIndicator={false}
+//         scrollEventThrottle={16}
+//         onScroll={(event) => {
+//           const scrollY = event.nativeEvent.contentOffset.y;
+//           // Yellow sticks to top after scrolling past topContentHeight
+//           setYellowTop(Math.max(topContentHeight - scrollY, 0));
+
+//         }}
+//       >
+//         <View style={{ backgroundColor: 'red', padding: 12, borderRadius: 8 }}>
+//           <Text style={{ fontWeight: '700', color: '#fff' }}>EMI Transactions</Text>
+//         </View>
+
+//         {emiData.map((item) => (
+//           <View
+//             key={item.id}
+//             style={{
+//               width: '100%',
+//               backgroundColor: 'green',
+//               marginTop: 12,
+//               borderRadius: 10,
+//               padding: 12,
+//             }}
+//           >
+//             <Text style={{ fontWeight: '600', color: '#fff' }}>{item.day}</Text>
+//             <Text style={{ color: '#fff' }}>₹ {item.ammount}</Text>
+//           </View>
+//         ))}
+//       </ScrollView>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   header: {
+//     position: 'absolute',
+//     top: 0,
+//     left: 0,
+//     right: 0,
+//     height: 60,
+//     backgroundColor: '#fff',
+//     zIndex: 10,
+//     elevation: 3,
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     flexDirection: 'row',
+//     paddingHorizontal: 16,
+//   },
+//   topContent: {
+//     marginTop: 60,
+//     alignItems: 'center',
+//     paddingBottom: 12,
+//   },
+//   image: {
+//     borderRadius: 20,
+//     overflow: 'hidden',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
+
+
+
+import React, { useState } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   ImageBackground,
-  Dimensions,
   ScrollView,
+  StyleSheet,
+  Dimensions,
 } from 'react-native';
+import OfferCarousel from '../../components/Carousal';
 import { Icons } from '../../themes/Icons';
 import { emiData } from '../../utils/data';
-import OfferCarousel from '../../components/Carousal'; // your carousel component
 
-const Index = () => {
-  const { height: screenHeight } = Dimensions.get('window');
+export default function Index() {
+  const { width: screenWidth } = Dimensions.get('window');
   const imageHeight = 200;
-  const imageMargin = 20;
-  const carouselHeight = 300; // exact height of your OfferCarousel component
+  const carouselHeight = 300;
+  const topContentHeight = imageHeight + carouselHeight;
+  const headerHeight = 60;
 
-  // Total height of image + carousel + margin
-  const topContentHeight = imageHeight + imageMargin + carouselHeight;
+  const [scrollY, setScrollY] = useState(0);
+
+  // Yellow panel er top position dynamically set hobe
+  const yellowTop = topContentHeight - scrollY;
 
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       {/* Header */}
-      <View
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 60,
-          // backgroundColor: 'rgba(255,255,255,0.95)',
-          backgroundColor: "#ffff",
-          flexDirection: 'row',
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 4,
-          },
-          shadowOpacity: 0.3,
-          shadowRadius: 10,
-          elevation: 3,
-          alignItems: 'center',
-          paddingHorizontal: 15,
-          justifyContent: 'space-between',
-          zIndex: 3,
-        }}
-      >
+      <View style={styles.header}>
         <TouchableOpacity>
           <Icons.arrow2Icon width={20} height={20} />
         </TouchableOpacity>
-        <Text style={{ fontSize: 15, color: '#000' }}>Header</Text>
+        <Text style={{ fontSize: 15 }}>Header</Text>
+        <View style={{ width: 20 }} />
       </View>
 
-      {/* Top Content: Image + Carousel */}
-      <View style={{ marginTop: 60, alignItems: 'center', zIndex: 0 }}>
+      {/* Top content (image + carousel) */}
+      <View style={styles.topContent}>
         <ImageBackground
           source={Icons.imgbk}
-          style={{
-            marginTop: imageMargin,
-            width: screenHeight * 0.4,
-            height: imageHeight,
-            borderRadius: 40,
-            overflow: 'hidden',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={[styles.image, { width: screenWidth * 0.9, height: imageHeight }]}
         >
-          <Text style={{ fontSize: 30, color: 'white' }}>Hi</Text>
+          <TouchableOpacity onPress={() => console.log('Image pressed')}>
+            <Text style={{ fontSize: 30, color: 'white' }}>Hi</Text>
+          </TouchableOpacity>
         </ImageBackground>
 
-        {/* Carousel */}
-        <View style={{ height: carouselHeight, marginTop: 10, width: '100%' }}>
+        <View style={{ height: carouselHeight, width: '100%', marginTop: 10 }}>
           <OfferCarousel />
         </View>
       </View>
 
-      {/* Red Scrollable Section */}
+      {/* Scrollable content */}
       <ScrollView
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 2,
-        }}
-        contentContainerStyle={{
-          paddingTop: 60 + topContentHeight, // header + image + carousel
-          paddingBottom: "3%",
-        }}
-        showsVerticalScrollIndicator={false}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ paddingBottom: 100 }}
+        onScroll={(e) => setScrollY(e.nativeEvent.contentOffset.y)}
+        scrollEventThrottle={16}
       >
+        {/* Yellow panel */}
         <View
           style={{
-            backgroundColor: 'white',
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            paddingTop: 20,
-            paddingBottom: 50,
-            borderTopWidth: 0.3,
-            borderRightWidth: 0.3,
-            borderLeftWidth: 0.3,
+            position: 'absolute',
+            top: yellowTop,
+            left: 0,
+            right: 0,
+            backgroundColor: 'yellow',
+            padding: 16,
+            zIndex: 1, // header er niche
           }}
         >
-          <View style={{backgroundColor: "red"}}>
-            <Text
-            style={{
-              marginHorizontal: 16,
-              fontWeight: 'bold',
-              fontSize: 16,
-              color: '#000',
-            }}
-          >
-            EMI Transactions
-          </Text>
+          <View style={{ backgroundColor: 'red', padding: 12, borderRadius: 8 }}>
+            <Text style={{ fontWeight: '700', color: '#fff' }}>EMI Transactions</Text>
           </View>
 
           {emiData.map((item) => (
             <View
               key={item.id}
               style={{
-                width: '90%',
-                alignSelf: 'center',
+                width: '100%',
                 backgroundColor: 'green',
-                marginVertical: 8,
+                marginTop: 12,
                 borderRadius: 10,
-                padding: 10,
+                padding: 12,
               }}
             >
-              <Text style={{ fontWeight: '600', color: '#fff', fontSize: 16 }}>
-                {item.day}
-              </Text>
-              <Text style={{ fontSize: 14, color: '#fff' }}>₹ {item.ammount}</Text>
+              <Text style={{ fontWeight: '600', color: '#fff' }}>{item.day}</Text>
+              <Text style={{ color: '#fff' }}>₹ {item.ammount}</Text>
             </View>
           ))}
         </View>
+
+        {/* Spacer to allow scrolling */}
+        <View style={{ height: topContentHeight + emiData.length * 100 }} />
       </ScrollView>
     </View>
   );
-};
+}
 
-export default Index;
+const styles = StyleSheet.create({
+  header: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    backgroundColor: '#fff',
+    zIndex: 10,
+    elevation: 3,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+  },
+  topContent: {
+    marginTop: 60,
+    alignItems: 'center',
+    paddingBottom: 12,
+  },
+  image: {
+    borderRadius: 20,
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
