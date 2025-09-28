@@ -1283,8 +1283,18 @@ import {
 import OfferCarousel from '../../components/Carousal';
 import { Icons } from '../../themes/Icons';
 import { emiData } from '../../utils/data';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootMainStackParamList } from '../../types';
+import { useNavigation } from '@react-navigation/native';
+
+type LoanDashboardNavProp = NativeStackNavigationProp<
+    RootMainStackParamList,
+    'LoanDashboard'
+>;
 
 export default function Index() {
+
+  const navigation = useNavigation<LoanDashboardNavProp>();
   const { width: screenWidth } = Dimensions.get('window');
   const imageHeight = 200;
   const carouselHeight = 300;
@@ -1313,7 +1323,7 @@ export default function Index() {
           source={Icons.imgbk}
           style={[styles.image, { width: screenWidth * 0.9, height: imageHeight }]}
         >
-          <TouchableOpacity onPress={() => console.log('Image pressed')}>
+          <TouchableOpacity onPress={() => navigation.navigate("AccountStatement")}>
             <Text style={{ fontSize: 30, color: 'white' }}>Hi</Text>
           </TouchableOpacity>
         </ImageBackground>

@@ -20,6 +20,7 @@ import Share from '../assets/icons/share.png';
 import CheckBox from '../assets/icons/CheckBox.png';
 import WealthRupee from '../assets/icons/WealthRupee.png';
 import imgbk from '../assets/images/imgbckground.jpeg';
+import user from '../assets/icons/user.png';
 
 export const Icons = {
   retailPe: RetailPeIcon,
@@ -44,4 +45,5 @@ export const Icons = {
   CheckBox: CheckBox,
   WealthRupee: WealthRupee,
   imgbk: imgbk,
+  user: user,
 };
