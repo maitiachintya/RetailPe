@@ -11,6 +11,7 @@ import BusinessVerification from '../screens/BusinessVerification';
 import LoanApplied from '../screens/LoanApplied';
 import LoanDashboard from '../screens/LoanDashboard';
 import AccountStatement from '../screens/AccountStatement';
+import ContactLists from '../screens/ContactLists';
 
 // Create navigation ref
 export const navigationRef =
@@ -27,6 +28,7 @@ export default function RootNavigation() {
         <Stack.Screen name='BusinessVerification' component={BusinessVerification} />
         <Stack.Screen name='LoanApplied' component={LoanApplied}/>
         <Stack.Screen name='LoanDashboard' component={LoanDashboard}/>
+        <Stack.Screen name='ContactLists' component={ContactLists} />
         <Stack.Screen name='AccountStatement' component={AccountStatement}/>
         {/* Add more stack screens here if needed */}
       </Stack.Navigator>

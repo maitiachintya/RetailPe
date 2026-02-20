@@ -5,6 +5,7 @@ export type RootMainStackParamList = {
   LoanApplied: undefined;
   LoanDashboard: undefined;
   AccountStatement: undefined;
+  ContactLists: undefined;
 };
 
 export type RootMainTabParamList = {

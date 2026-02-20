@@ -112,10 +112,13 @@ const RetailPe = () => {
         </TouchableOpacity>
       </View>
       {/* FAQ */}
-      <TouchableOpacity style={styles.faqCard}>
-        <Text style={styles.faqText}>Retail Pe FAQ</Text>
-        <Image source={Icons.faq} style={styles.faqLogo} />
-      </TouchableOpacity>
+      <TouchableOpacity
+  style={styles.faqCard}
+  onPress={() => navigation.navigate('ContactLists')}
+>
+  <Text style={styles.faqText}>Retail Pe FAQ</Text>
+  <Image source={Icons.faq} style={styles.faqLogo} />
+</TouchableOpacity>
       {/* Shop Loan Offer */}
       <OfferCarousel />
       <View style={styles.container}>

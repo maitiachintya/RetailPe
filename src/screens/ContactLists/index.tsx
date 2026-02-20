@@ -1,0 +1,86 @@
+import React, { useEffect, useState } from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  PermissionsAndroid,
+  Platform,
+  ActivityIndicator,
+} from 'react-native';
+import Contacts from 'react-native-contacts';
+
+const ContactListScreen = () => {
+  const [contacts, setContacts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const requestPermission = async () => {
+    if (Platform.OS === 'android') {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
+      );
+      return granted === PermissionsAndroid.RESULTS.GRANTED;
+    }
+    return true;
+  };
+
+  useEffect(() => {
+    const loadContacts = async () => {
+      const permission = await requestPermission();
+      if (!permission) {
+        setLoading(false);
+        return;
+      }
+
+      const allContacts = await Contacts.getAll();
+      console.log("TOTAL:", allContacts.length);
+
+      setContacts(allContacts);
+      setLoading(false);
+    };
+
+    loadContacts();
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={styles.center}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>
+        Contacts ({contacts.length})
+      </Text>
+
+      <FlatList
+        data={contacts}
+        keyExtractor={(item) => item.recordID}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
+            <Text style={styles.name}>{item.displayName}</Text>
+            {item.phoneNumbers.map((num: any, index: any) => (
+              <Text key={index} style={styles.number}>
+                {num.number}
+              </Text>
+            ))}
+          </View>
+        )}
+      />
+    </View>
+  );
+};
+
+export default ContactListScreen;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16 },
+  header: { fontSize: 20, fontWeight: 'bold', marginBottom: 10 },
+  card: { padding: 12, backgroundColor: '#fff', marginBottom: 8, borderRadius: 8 },
+  name: { fontSize: 16, fontWeight: '600' },
+  number: { fontSize: 14, color: 'gray' },
+  center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+});
