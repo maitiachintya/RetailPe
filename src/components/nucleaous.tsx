@@ -628,7 +628,7 @@ export default function PerfectOrbitFinanceDesign() {
         viewBox={`0 0 ${DESIGN_WIDTH} ${DESIGN_HEIGHT}`}
       >
         {/* Background */}
-        <Rect width={DESIGN_WIDTH} height={DESIGN_HEIGHT} fill="#F3F3F3" />
+        <Rect width={DESIGN_WIDTH} height={DESIGN_HEIGHT} fill="#ffff" />
 
         {/* Static Orbit Paths */}
         {/* {[715, 580, 445, 265].map((rx, i) => (
@@ -719,7 +719,7 @@ export default function PerfectOrbitFinanceDesign() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F3F3',
+    // backgroundColor: '#ffff',
     justifyContent: 'center',
     alignItems: 'center',
   },
