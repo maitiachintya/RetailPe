@@ -16,6 +16,7 @@ import Gradient from '../../components/Gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootMainStackParamList } from '../../types';
 import { useNavigation } from '@react-navigation/native';
+import FinanceOrbitDesign from '../../components/nucleaous';
 
 // type RetailPeNavigationProp = NativeStackNavigationProp<
 //   RootStackParamList,
@@ -147,6 +148,7 @@ const RetailPe = () => {
           </View>
         ))}
       </View>
+      <FinanceOrbitDesign />
     </ScrollView>
   );
 };
