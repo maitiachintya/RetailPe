@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icons } from '../../themes/Icons';
 import LoanCard from '../../components/LoanCard';
 import OfferCarousel from '../../components/Carousal';
@@ -17,26 +17,14 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootMainStackParamList } from '../../types';
 import { useNavigation } from '@react-navigation/native';
 import FinanceOrbitDesign from '../../components/nucleaous';
-
-// type RetailPeNavigationProp = NativeStackNavigationProp<
-//   RootStackParamList,
-//   'RetailPe'
-// >;
-
-// type RetailPeNavigationProp = NativeStackNavigationProp<
-//   RootMainStackParamList,
-//   'PanVerification'
-// >;
-
-// type RetailPeNavigationProp = NativeStackNavigationProp<
-//   RootMainStackParamList,
-//   'BusinessVerification'
-// >;
-
-// type RetailPeNavigationProp = NativeStackNavigationProp<
-//   RootMainStackParamList,
-//   'LoanApplied'
-// >;
+import {
+  Easing,
+  useDerivedValue,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from 'react-native-reanimated';
+import AnimatedGlow, { glowPresets } from 'react-native-animated-glow';
 
 type RetailPeNavigationProp = NativeStackNavigationProp<
   RootMainStackParamList,
@@ -44,9 +32,67 @@ type RetailPeNavigationProp = NativeStackNavigationProp<
 >;
 
 const RetailPe = () => {
-  // const navigation = useNavigation<RetailPeNavigationProp>();
-
   const navigation = useNavigation<RetailPeNavigationProp>();
+
+  const progress = useSharedValue(0);
+
+  useEffect(() => {
+    progress.value = withRepeat(
+      withTiming(360, {
+        duration: 2500,
+        easing: Easing.linear,
+      }),
+      -1,
+      false,
+    );
+  }, []);
+
+  const faqGlowPreset = {
+    metadata: {
+      name: 'FAQ Rainbow',
+      textColor: '#000',
+      category: 'Custom',
+      tags: [],
+    },
+    states: [
+      {
+        name: 'default',
+        preset: {
+          cornerRadius: 10,
+          
+          glowLayers: [
+            {
+              colors: [
+                '#ff0000',
+                '#ff7f00',
+                '#ffff00',
+                '#00ff00',
+                '#00ffff',
+                '#0000ff',
+                '#8b00ff',
+              ],
+              glowSize: 12,
+              opacity: 0.15,
+            },
+          ],
+        },
+      },
+      {
+        name: 'press',
+        transition: 150,
+        preset: {
+          glowLayers: [
+            {
+              glowSize: 12,
+              opacity: 0.4,
+            },
+          ],
+        },
+      },
+    ],
+  };
+
+  const [glowState, setGlowState] = useState('default');
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -113,13 +159,21 @@ const RetailPe = () => {
         </TouchableOpacity>
       </View>
       {/* FAQ */}
-      <TouchableOpacity
-  style={styles.faqCard}
-  onPress={() => navigation.navigate('ContactLists')}
->
-  <Text style={styles.faqText}>Retail Pe FAQ</Text>
-  <Image source={Icons.faq} style={styles.faqLogo} />
-</TouchableOpacity>
+
+      {/* Rainbow Border */}
+      <AnimatedGlow preset={faqGlowPreset} activeState={glowState}>
+        <TouchableOpacity
+          activeOpacity={0.9}
+          style={styles.faqCard}
+          onPressIn={() => setGlowState('press')}
+          onPressOut={() => setGlowState('default')}
+          onPress={() => navigation.navigate('ContactLists')}
+        >
+          <Text style={styles.faqText}>Retail Pe FAQ</Text>
+          <Image source={Icons.faq} style={styles.faqLogo} />
+        </TouchableOpacity>
+      </AnimatedGlow>
+
       {/* Shop Loan Offer */}
       <OfferCarousel />
       <View style={styles.container}>

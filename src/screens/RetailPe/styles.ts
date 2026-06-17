@@ -140,19 +140,18 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#ffff',
+
+    backgroundColor: '#fff',
+
     borderRadius: 10,
+
     marginHorizontal: 20,
     padding: 14,
     marginBottom: 16,
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 10,
-    elevation: 6,
+
+    overflow: 'hidden', // add
+
+    elevation: 2,
   },
   faqText: {
     fontWeight: '600',

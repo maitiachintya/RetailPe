@@ -355,8 +355,6 @@
 //   },
 // });
 
-
-
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Dimensions, StyleSheet } from 'react-native';
 import Svg, {
