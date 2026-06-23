@@ -6,17 +6,24 @@ import {
   TouchableOpacity,
   StyleSheet,
   Keyboard,
+  Alert,
 } from 'react-native';
+import * as Keychain from 'react-native-keychain';
 
-export default function ContactLists({ navigation }: any) {
-  const [mpin, setMpin] = useState('');
+export default function ConfirmMpin({ route, navigation }: any) {
+  const originalMpin = route?.params?.originalMpin ?? '';
+
+  const [confirmMpin, setConfirmMpin] = useState('');
+  const [error, setError] = useState('');
+
   const inputRef = useRef<TextInput>(null);
 
   const handleChange = (text: string) => {
     const value = text.replace(/[^0-9]/g, '');
 
     if (value.length <= 4) {
-      setMpin(value);
+      setConfirmMpin(value);
+      setError('');
 
       if (value.length === 4) {
         Keyboard.dismiss();
@@ -24,22 +31,37 @@ export default function ContactLists({ navigation }: any) {
     }
   };
 
-  const onContinue = () => {
-    if (mpin.length !== 4) {
+  const saveMpin = async () => {
+    if (confirmMpin.length !== 4) {
+      setError('Enter 4 digit MPIN');
       return;
     }
 
-    navigation.navigate('ConfirmMpin', {
-      originalMpin: mpin,
-    });
+    if (confirmMpin !== originalMpin) {
+      setError('MPIN does not match');
+      return;
+    }
+
+    try {
+      await Keychain.setGenericPassword('mpin_user', confirmMpin);
+
+      Alert.alert('Success', 'MPIN created successfully');
+
+      console.log('MPIN Saved:', confirmMpin);
+
+      navigation.replace('TabNavigation');
+    } catch (error) {
+      console.log(error);
+      setError('Failed to save MPIN');
+    }
   };
 
   const renderBox = (index: number) => {
-    const filled = index < mpin.length;
+    const filled = index < confirmMpin.length;
 
     const active =
-      (mpin.length < 4 && index === mpin.length) ||
-      (mpin.length === 4 && index === 3);
+      (confirmMpin.length < 4 && index === confirmMpin.length) ||
+      (confirmMpin.length === 4 && index === 3);
 
     return (
       <TouchableOpacity
@@ -55,15 +77,17 @@ export default function ContactLists({ navigation }: any) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Create MPIN</Text>
+      <Text style={styles.title}>Confirm MPIN</Text>
 
-      <Text style={styles.subtitle}>Create a secure 4 digit MPIN</Text>
+      <Text style={styles.subtitle}>Re-enter your 4 digit MPIN</Text>
 
       <View style={styles.pinContainer}>{[0, 1, 2, 3].map(renderBox)}</View>
 
+      {!!error && <Text style={styles.errorText}>{error}</Text>}
+
       <TextInput
         ref={inputRef}
-        value={mpin}
+        value={confirmMpin}
         onChangeText={handleChange}
         keyboardType="number-pad"
         maxLength={4}
@@ -73,12 +97,14 @@ export default function ContactLists({ navigation }: any) {
       />
 
       <TouchableOpacity
-        activeOpacity={0.8}
-        disabled={mpin.length !== 4}
-        style={[styles.button, mpin.length !== 4 && styles.buttonDisabled]}
-        onPress={onContinue}
+        disabled={confirmMpin.length !== 4}
+        style={[
+          styles.button,
+          confirmMpin.length !== 4 && styles.buttonDisabled,
+        ]}
+        onPress={saveMpin}
       >
-        <Text style={styles.buttonText}>Continue</Text>
+        <Text style={styles.buttonText}>Confirm</Text>
       </TouchableOpacity>
     </View>
   );
@@ -122,6 +148,11 @@ const styles = StyleSheet.create({
   boxText: {
     fontSize: 28,
     fontWeight: '700',
+  },
+  errorText: {
+    marginTop: 16,
+    textAlign: 'center',
+    color: '#DC2626',
   },
   hiddenInput: {
     position: 'absolute',

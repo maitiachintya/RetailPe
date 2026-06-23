@@ -6,6 +6,9 @@ export type RootMainStackParamList = {
   LoanDashboard: undefined;
   AccountStatement: undefined;
   ContactLists: undefined;
+  ConfirmMpin: {
+    originalMpin: string;
+  };
 };
 
 export type RootMainTabParamList = {

@@ -33,7 +33,7 @@ type RetailPeNavigationProp = NativeStackNavigationProp<
 
 const RetailPe = () => {
   const navigation = useNavigation<RetailPeNavigationProp>();
-
+  const [mpin, setMpin] = useState('');
   const progress = useSharedValue(0);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const RetailPe = () => {
         name: 'default',
         preset: {
           cornerRadius: 10,
-          
+
           glowLayers: [
             {
               colors: [
